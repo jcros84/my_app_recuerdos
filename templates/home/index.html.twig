@@ -1,0 +1,43 @@
+{# templates/home/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Inicio - MyApp Recuerdos{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h1 class="display-4">Bienvenido a MyApp Recuerdos</h1>
+            <p class="lead">Guarda y comparte tus recuerdos más preciados. Crea álbumes, sube fotos y añade descripciones.</p>
+            <p>
+                {% if app.user %}
+                    <a class="btn btn-primary" href="{{ path('recuerdo_index') }}">Mis recuerdos</a>
+                {% else %}
+                    <a class="btn btn-primary" href="/login">Iniciar sesión</a>
+                    <a class="btn btn-outline-secondary" href="/register">Crear cuenta</a>
+                {% endif %}
+            </p>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="{{ asset('img/undraw_posting_photo.svg') }}" alt="Recuerdos" class="img-fluid rounded shadow-sm">
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Álbumes</h3>
+            <p>Crea y organiza tus fotos por eventos o fechas.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Privacidad</h3>
+            <p>Controla quién puede ver cada recuerdo.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Compartir</h3>
+            <p>Comparte recuerdos con amigos y familia mediante enlaces privados.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
